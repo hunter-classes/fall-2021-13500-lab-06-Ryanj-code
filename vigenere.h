@@ -1,4 +1,4 @@
 #pragma once
 #include <iostream>
 
-string encryptVigenere(string plaintext, string keyword);
+std::string encryptVigenere(std::string plaintext, std::string keyword);
