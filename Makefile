@@ -20,4 +20,4 @@ caesar.o: caesar.cpp caesar.h
 
 
 clean:
-	rm -f main.o tests.o test-ascii.o caesar.o
+	rm -f main.o funcs.o tests.o test-ascii.o caesar.o
