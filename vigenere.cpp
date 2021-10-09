@@ -9,24 +9,24 @@ This program contains the Vigenere Cipher functions.
 #include <iostream>
 #include <cctype>
 
-char upper[26] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-char lower[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+char up[26] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+char low[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 // Creating arrays with lower and upper case alphabets.
-int count = 0;
+int counts = 0;
 
 char shiftChar(char c, std::string keyword){
   if(!isalpha(c)){
     return c;
   } // Returns c if c is not an alphabet.
 
-  if(count == keyword.length()){
-    count = 0;
-  } // If count equal to the length of keyword set count to 0 to reset looping through keyword.
+  if(counts == keyword.length()){
+    counts = 0;
+  } // If counts equal to the length of keyword set counts to 0 to reset looping through keyword.
 
   int shift = 0;
 
   for(int i = 0; i < 26; i++){
-    if(keyword[count] == lower[i]){
+    if(keyword[counts] == low[i] || keyword[counts] == up[i]){
       shift = i;
     }
   } // Loop through to find the shift based on the current index of keyword.
@@ -40,7 +40,7 @@ char shiftChar(char c, std::string keyword){
     x -= 26;
   } // Else, if x is greater than 122(97 - 122 is range of lowercase on ASCII table), subtract 26.
 
-  count++;
+  counts++;
   return x;
 } // Increment count and return x disguised as a char based on ASCII table.
 
@@ -51,7 +51,7 @@ std::string encryptVigenere(std::string plaintext, std::string keyword){
     s += shiftChar(plaintext[i], keyword);
   } // Loops through plaintext, and uses the shiftChar function to shift the entire string.
 
-  count = 0;
+  counts = 0;
   return s;
-} // Sets count to 0 and returns s.
+} // Sets counts to 0 and returns s.
 

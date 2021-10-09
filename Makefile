@@ -1,10 +1,10 @@
 # Makefile
 
-main: main.o funcs.o caesar.o vigenere.o
-	g++ -o main main.o funcs.o caesar.o vigenere.o
+main: main.o funcs.o caesar.o vigenere.o decryption.o
+	g++ -o main main.o funcs.o caesar.o vigenere.o decryption.o
 
-tests: tests.o funcs.o caesar.o vigenere.o
-	g++ -o tests tests.o funcs.o caesar.o vigenere.o
+tests: tests.o funcs.o caesar.o vigenere.o decryption.o
+	g++ -o tests tests.o funcs.o caesar.o vigenere.o decryption.o
 
 test-ascii: test-ascii.o
 	g++ -o test-ascii test-ascii.o
@@ -22,6 +22,7 @@ caesar.o: caesar.cpp caesar.h
 
 vigenere.o: vigenere.cpp vigenere.h
 
+decryption.o: decryption.cpp decryption.h
 
 clean:
-	rm -f main.o funcs.o tests.o test-ascii.o caesar.o vigenere.o
+	rm -f main.o funcs.o tests.o test-ascii.o caesar.o vigenere.o decryption.o
