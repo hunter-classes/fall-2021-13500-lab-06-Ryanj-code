@@ -22,9 +22,10 @@ int main(){
   std::string test1 = "Cat :3 Dog";
   testingAscii(test1);
   std::cout << "\n";
-  
+  // Test case 1.
   std::string test2 = "Hello World!";
   testingAscii(test2);
   std::cout << std::endl;
+  // Test case 2.
   return 0;
 }
